@@ -6,7 +6,7 @@ return {
 		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
 		"nvim-telescope/telescope-file-browser.nvim",
 		"nvim-telescope/telescope-ui-select.nvim",
-		-- "nvim-telescope/telescope-frecency.nvim",
+		"nvim-telescope/telescope-frecency.nvim",
 	},
 	cmd = "Telescope",
 	keys = {
@@ -66,13 +66,13 @@ return {
 			end,
 			desc = "Open file explorer",
 		},
-		-- {
-		-- 	"<Leader>fr",
-		-- 	function()
-		-- 		require("telescope").extensions.frecency.frecency()
-		-- 	end,
-		-- 	desc = "Find recent files",
-		-- },
+		{
+			"<Leader>fr",
+			function()
+				require("telescope").extensions.frecency.frecency()
+			end,
+			desc = "Find recent files",
+		},
 	},
 	config = function()
 		require("telescope").setup({
@@ -85,6 +85,6 @@ return {
 		require("telescope").load_extension("fzf")
 		require("telescope").load_extension("file_browser")
 		require("telescope").load_extension("ui-select")
-		-- require("telescope").load_extension("frecency")
+		require("telescope").load_extension("frecency")
 	end,
 }
