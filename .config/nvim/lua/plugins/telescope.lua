@@ -13,7 +13,7 @@ return {
     {
       "<Leader>ff",
       function()
-        require("telescope.builtin").find_files({ hidden = true })
+        require("telescope.builtin").find_files()
       end,
       desc = "Find files",
     },
@@ -76,7 +76,16 @@ return {
   },
   config = function()
     require("telescope").setup({
+      pickers = {
+        find_files = {
+          file_ignore_patterns = { ".git", ".venv", "node_modules" },
+          hidden = true,
+        },
+      },
       extensions = {
+        file_browser = {
+          hidden = { file_browser = true, folder_browser = true },
+        },
         ["ui-select"] = {
           require("telescope.themes").get_dropdown(),
         },
