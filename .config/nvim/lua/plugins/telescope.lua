@@ -32,6 +32,13 @@ return {
       desc = "Find buffer",
     },
     {
+      "<Leader>fr",
+      function()
+        require("telescope.builtin").registers()
+      end,
+      desc = "List registers",
+    },
+    {
       "<Leader>fh",
       function()
         require("telescope.builtin").help_tags()
@@ -58,6 +65,13 @@ return {
         require("telescope.builtin").colorscheme()
       end,
       desc = "Change colorscheme",
+    },
+    {
+      "<Leader>fd",
+      function()
+        require("telescope.builtin").diagnostics()
+      end,
+      desc = "Lists diagnostics for all open buffers",
     },
     {
       "<Leader>fn",

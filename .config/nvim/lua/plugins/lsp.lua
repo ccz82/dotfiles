@@ -11,6 +11,7 @@ local lspServers = {
   clangd = {
     cmd = { "clangd", "--offset-encoding=utf-16" },
   },
+  csharp_ls = {},
   rust_analyzer = {},
   pyright = {},
   tsserver = {},
