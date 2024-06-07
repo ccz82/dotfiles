@@ -1,0 +1,42 @@
+* {
+  border-radius: 5px;
+  border: none;
+}
+
+window {
+  font-family: "SF Pro", sans-serif;
+  font-size: 30px;
+  background-color: black;
+  color: white;
+}
+
+#entry {
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+#entry:selected {
+  background: linear-gradient(to left, #548ade, #a950ab);
+}
+
+#img {
+  margin: 10px;
+}
+
+#input {
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: black;
+  box-shadow: none;
+  border-image: linear-gradient(to left, #548ade, #a950ab);
+  color: white;
+}
+
+#input image {
+  padding-left: 10px;
+  padding-right: 10px;
+}

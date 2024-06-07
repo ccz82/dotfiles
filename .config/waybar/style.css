@@ -1,0 +1,70 @@
+* {
+  border: none;
+  border-radius: 0;
+  font-family: "SF Pro", sans-serif;
+  font-size: 15px;
+  min-height: 0;
+}
+
+window#waybar {
+  background: transparent;
+}
+
+#workspaces,
+#clock,
+#network,
+#bluetooth,
+#mode,
+#custom-media,
+#pulseaudio,
+#backlight,
+#battery {
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-left: 3px;
+  margin-right: 3px;
+  border-radius: 20px;
+  background-color: #200000;
+  color: #ffffff;
+}
+
+#workspaces {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-left: 0;
+}
+
+#workspaces button {
+  padding-left: 3px;
+  padding-right: 3px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background: transparent;
+  border-bottom: 2px solid transparent;
+  color: #ffffff;
+}
+
+#workspaces button.focused {
+  border-bottom: 2px solid #ff79c6;
+  color: #ff79c6;
+}
+
+#workspaces button:hover {
+  box-shadow: none;
+  text-shadow: none;
+  border-bottom: 2px solid #ff79c6;
+}
+
+#custom-media {
+  background: linear-gradient(to left, #548ade, #a950ab);
+}
+
+#battery {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  padding-left: 20px;
+  padding-right: 10px;
+  margin-right: 0;
+}
