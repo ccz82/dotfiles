@@ -24,17 +24,20 @@
 #clock.time {
   padding-left: 5px;
   padding-right: 5px;
+  padding-top: 2px;
 }
 
 #workspaces {
   margin-left: 3px;
   margin-right: 3px;
+  padding-top: 0;
 }
 
 #workspaces button {
+  padding-left: 5px;
+  padding-right: 5px;
   background: transparent;
   color: white;
-  padding: 0 5px;
   border-top: 2px solid transparent;
 }
 
