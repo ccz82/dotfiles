@@ -1,7 +1,12 @@
 # dotfiles
 
 ## Contents
+- .bash_profile
 - .editorconfig
+- sway(fx) config
+- waybar config
+- wofi config
+- kitty config
 - Neovim config (located in .config/nvim)
 
 ## Neovim Configuration
@@ -18,6 +23,5 @@
 
 ## Setup
 - Install GNU Stow (`pacman -S stow`)
-- Create `~/dotfiles` directory
-- `git clone` this repository in the root of home directory, `~`
-- Run `stow .` in `dotfiles` to symlink contents of dotfiles to parent directory, `~`
+- `git clone` this repository in the root of home directory, `~/dotfiles`
+- Run `stow .` in `~/dotfiles` to symlink contents of dotfiles to parent directory, `~`
