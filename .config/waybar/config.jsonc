@@ -1,69 +1,60 @@
 {
   // Basic configuration
-
   "layer": "top",
   "position": "top",
-  "margin-top": 4,
-  "margin-bottom": 4,
 
   // Position and order of modules
-
-  "modules-left": ["idle_inhibitor", "sway/workspaces", "clock", "network", "bluetooth", "sway/mode"],
+  "modules-left": ["custom/arch", "sway/workspaces", "pulseaudio", "backlight", "idle_inhibitor"],
   "modules-center": ["custom/media"],
-  "modules-right": ["pulseaudio", "backlight", "battery"],
+  "modules-right": ["network", "bluetooth", "battery", "clock#date", "clock#time"],
 
   // Modules
-"idle_inhibitor": {
-    "format": "{icon}",
-    "format-icons": {
-        "activated": "",
-        "deactivated": ""
-    }
-},
+  "custom/arch": {
+    "format": "󰣇",
+    "tooltip": false
+  },
+
   "sway/workspaces": {
     "disable-scroll": true,
     "all-outputs": true
   },
 
-  "clock": {
-    "interval": 5,
-    "format": "<span color=\"#ff5555\"></span>  {:%H:%M}",
-    "format-alt": "<span color=\"#bd93f9\"></span>  {:%d/%m/%Y}",
+  "pulseaudio": {
+    "format": "{icon} {volume}%",
+    "format-bluetooth": " {volume}%",
+    "format-icons": {
+      "headphones": "",
+      "handsfree": "",
+      "headset": "",
+      "muted": "",
+      "default": [
+        "",
+        "",
+        ""
+      ]
+    },
+    "on-click": "pavucontrol",
     "tooltip": false
   },
 
-  "network": {
-    "interval" : 5,
-    "format": "{icon}  {essid}",
-    "format-disconnected": "{icon}",
-    "format-icons": {
-      "wifi": [
-        "<span color=\"#de281b\">󰤟</span>",
-        "<span color=\"#e8c92c\">󰤢</span>",
-        "<span color=\"#32a852\">󰤥</span>",
-        "<span color=\"#32a852\">󰤨</span>"
-      ],
-      "disconnected": "<span color=\"#91908c\">󰤫</span>",
-      "ethernet": "<span color=\"#32a852\"></span>", 
-      "disabled": "<span color=\"#91908c\">⚠</span>"
-    }
+  "backlight": {
+    "device": "intel_backlight",
+    "format": "{icon} {percent}%",
+    "format-icons": [
+      "󰃞",
+      "󰃟",
+      "󰃝",
+      "󰃠"
+    ],
+    "tooltip": false
   },
 
-  "bluetooth": {
-    "interval": 5,
+  "idle_inhibitor": {
     "format": "{icon}",
-    "format-connected": "{icon} {device_alias}",
     "format-icons": {
-      "enabled": "<span color=\"#0082fc\">󰂯</span>",
-      "disabled": "<span color=\"#91908c\">󰂲</span>",
-      "connected": "<span color=\"#0082fc\">󰂱</span>" 
+      "activated": "󰈈",
+      "deactivated": "󰈉"
     },
-    "on-click": "",
-    "on-click-right": "blueman-manager"
-  },
-
-  "sway/mode": {
-    "format": "<span style=\"italic\"><span color=\"#ff79c6\"></span> {}</span>",
     "tooltip": false
   },
 
@@ -72,61 +63,68 @@
     "escape": true,
     "return-type": "json",
     "max-length": 40,
+    "smooth-scrolling-threshold": 10,
     "on-click": "playerctl play-pause",
     "on-click-right": "playerctl stop",
-    "smooth-scrolling-threshold": 10,
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
     "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
   },
 
-  "pulseaudio": {
-    "format": "<span color=\"#8be9fd\">{icon}</span>  {volume}%",
-    "format-bluetooth": "<span color=\"#8be9fd\"></span>  {volume}%",
-    "format-muted": "<span color=\"#8be9fd\"></span>",
+  "network": {
+    "interval" : 20,
+    "format": "{icon} {essid}",
+    "format-disconnected": "{icon}",
     "format-icons": {
-      "headphones": "",
-      "handsfree": "",
-      "headset": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "wifi": [
+        "󰤟",
+        "󰤢",
+        "󰤥",
+        "󰤨"
+      ],
+      "disconnected": "󰤫",
+      "ethernet": "󰈀", 
+      "disabled": "⚠"
     },
-    "on-click-right": "pavucontrol",
-    "reverse-scrolling": true,
     "tooltip": false
   },
 
-  "backlight": {
-    "device": "intel_backlight",
-    "format": "{icon}  {percent}%",
-    "format-icons": [
-      "<span color=\"#eddd28\">󰃞</span>",
-      "<span color=\"#eddd28\">󰃝</span>",
-      "<span color=\"#eddd28\">󰃟</span>",
-      "<span color=\"#eddd28\">󰃠</span>"
-    ],
-    "reverse-scrolling": true,
+  "bluetooth": {
+    "interval": 5,
+    "format": "<span font='9'>{icon}</span>",
+    "format-connected": "{icon} {device_alias}",
+    "format-icons": {
+      "enabled": "󰂯",
+      "disabled": "󰂲",
+      "connected": "󰂱" 
+    },
+    "on-click": "blueberry",
     "tooltip": false
   },
 
   "battery": {
-    "interval": 3,
-    "states": {
-      "good": 80,
-      "warning": 30,
-      "critical": 15
-    },
-    "format": "{icon}  {capacity}%    <span color=\"#9c488b\">󰠠</span>  {power:.1f}W",
-    "format-charging": "{icon}<span color=\"#50fa7b\">󱐋</span> {capacity}%    <span color=\"#9c488b\">󰠠</span>  {power:.1f}W",
+    "interval": 20,
+    "format": "{icon} {capacity}%",
+    "format-charging": "{icon}󱐋 {capacity}%",
     "format-icons": [
-      "<span color=\"#ff5555\"></span>",
-      "<span color=\"#ffb86c\"></span>",
-      "<span color=\"#f1fa8c\"></span>",
-      "<span color=\"#50fa7b\"></span>",
-      "<span color=\"#50fa7b\"></span>"
-    ]
+      "",
+      "",
+      "",
+      "",
+      ""
+    ],
+    "tooltip": false
+  },
+
+  "clock#date": {
+    "interval": 45,
+    "format": "{:%e %b, %a}",
+    "tooltip": false
+  },
+
+  "clock#time": {
+    "interval": 45,
+    "format": "{:%H:%M}",
+    "tooltip": false
   }
 }
