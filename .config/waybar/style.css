@@ -8,6 +8,7 @@
   background: transparent;
   color: white;
   font-family: "SF Pro", sans-serif;
+  font-weight: 500;
   font-size: 13px;
 }
 
@@ -16,6 +17,7 @@
 #pulseaudio,
 #backlight,
 #idle_inhibitor,
+#window,
 #custom-media,
 #network,
 #bluetooth,

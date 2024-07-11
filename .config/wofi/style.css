@@ -1,13 +1,13 @@
 * {
-  border-radius: 5px;
+  border-radius: 7px;
   border: none;
 }
 
 window {
   font-family: "SF Pro", sans-serif;
-  font-size: 30px;
-  background-color: black;
-  color: white;
+  font-size: 25px;
+  border: 1px solid #928374;
+  background-color: #282828;
 }
 
 #entry {
@@ -17,26 +17,36 @@ window {
   padding-bottom: 5px;
 }
 
-#entry:selected {
-  background: linear-gradient(to left, #548ade, #a950ab);
-}
-
-#img {
-  margin: 10px;
-}
-
 #input {
-  padding-left: 5px;
-  padding-right: 5px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: black;
-  box-shadow: none;
-  border-image: linear-gradient(to left, #548ade, #a950ab);
-  color: white;
+  margin: 5px;
+  border: none;
+  color: #ebdbb2;
+  background-color: #1d2021;
 }
 
-#input image {
-  padding-left: 10px;
-  padding-right: 10px;
+#inner-box {
+  margin: 5px;
+  border: none;
+  background-color: #282828;
+}
+
+#outer-box {
+  margin: 5px;
+  border: none;
+  background-color: #282828;
+}
+
+#scroll {
+  margin: 0px;
+  border: none;
+}
+
+#text {
+  margin: 5px;
+  border: none;
+  color: #ebdbb2;
+}
+
+#entry:selected {
+  background-color: #1d2021;
 }

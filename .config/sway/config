@@ -1,25 +1,19 @@
-# Modifier key (Mod1 is Alt)
-set $mod Mod1
+# Inputs
 
-# vim-style direction keys
-set $left h
-set $down j
-set $up k
-set $right l
-
-# Keyboard input
+## Keyboard input
 input type:keyboard {
   repeat_delay 300
   repeat_rate 30
+  xkb_options caps:escape
 }
 
-# Touchpad input (Ensure natural_scroll is enabled)
+## Touchpad input
 input type:touchpad {
   dwt enabled
   tap enabled
   natural_scroll enabled
   middle_emulation enabled
-  scroll_factor 0.3
+  scroll_factor 0.6
 }
 
 # Idle configuration
@@ -27,6 +21,8 @@ exec swayidle -w \
   timeout 500 'swaylock -f -c 000000' \
   timeout 1000 'swaymsg "output * power off"' resume 'swaymsg "output * power on"' \
   before-sleep 'swaylock -f -c 000000'
+
+## Default applications
 
 # Status bar
 bar {
@@ -39,19 +35,52 @@ set $term kitty
 # Application launcher
 set $menu wofi --show drun
 
-# Wallpaper
+# Visual
+
+## Wallpaper
 output * bg /usr/share/backgrounds/sway/wallpaper.jpg fill
 
-# Border
-default_border pixel
-default_floating_border pixel
+## Border
+default_border none
+default_floating_border none
 
-# Gap
+## Gap
 gaps inner 10
+smart_borders no_gaps
 
-# Default floating applications
+## Applications that should float by default
 for_window [app_id="blueberry"] floating enable
 for_window [app_id="pavucontrol"] floating enable
+
+## Set default workspace for display outputs
+workspace 1 output eDP-1
+workspace 2 output HDMI-A-1
+
+# Key bindings
+
+## PrintScr -> Screenshot selectable part of the screen
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+
+## Shift+PrintScr -> Screenshot currently focused display
+bindsym Shift+Print exec grim -o $(swaymsg -t get_outputs | jq -r '.[] | select(.focused) | .name') - | swappy -f -
+
+## Multimedia keys
+# TODO: fix waybar not displaying muted status
+bindsym XF86AudioMute exec pamixer --toggle-mute
+bindsym XF86AudioLowerVolume exec pamixer -d 5
+bindsym XF86AudioRaiseVolume exec pamixer -i 5
+bindsym XF86MonBrightnessDown exec brightnessctl set 5%-
+bindsym XF86MonBrightnessUp exec brightnessctl set 5%+
+bindsym XF86AudioMicMute exec pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+## Modifier key (Mod1 is Alt)
+set $mod Mod1
+
+## vim-style direction keys
+set $left h
+set $down j
+set $up k
+set $right l
 
 # Mod+C -> Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -59,20 +88,17 @@ bindsym $mod+Shift+c reload
 # Mod+E -> Exit sway (logs you out of your Wayland session)
 bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
 
+# Mod+Q -> Kill focused container
+bindsym $mod+Shift+q kill
+
 # Mod+Enter -> Start a terminal
 bindsym $mod+Return exec $term
 
 # Mod+Space -> wofi application launcher
 bindsym $mod+Space exec $menu
 
-# Mod+Q -> Kill focused container
-bindsym $mod+Shift+q kill
-
 # Mod+f -> Toggle fullscreen on focused container
 bindsym $mod+f fullscreen
-
-# Mod-v -> Toggle split direction between horizontal/verticle
-bindsym $mod+v layout toggle split
 
 # Mod+h/j/k/l -> Switch focus on container
 bindsym $mod+$left focus left

@@ -4,58 +4,73 @@
   "position": "top",
 
   // Position and order of modules
-  "modules-left": ["custom/arch", "sway/workspaces", "pulseaudio", "backlight", "idle_inhibitor"],
+  "modules-left": [
+    "custom/arch",
+    "sway/workspaces",
+    "pulseaudio",
+    "backlight",
+    "idle_inhibitor",
+    "sway/window",
+  ],
   "modules-center": ["custom/media"],
-  "modules-right": ["network", "bluetooth", "battery", "clock#date", "clock#time"],
+  "modules-right": [
+    "network",
+    "bluetooth",
+    "battery",
+    "clock#date",
+    "clock#time",
+  ],
 
   // Modules
   "custom/arch": {
     "format": "󰣇",
-    "tooltip": false
+    "tooltip": false,
   },
 
   "sway/workspaces": {
     "disable-scroll": true,
-    "all-outputs": true
+    "all-outputs": true,
   },
 
   "pulseaudio": {
     "format": "{icon} {volume}%",
     "format-bluetooth": " {volume}%",
+    "format-muted": "",
     "format-icons": {
       "headphones": "",
       "handsfree": "",
       "headset": "",
-      "muted": "",
-      "default": [
-        "",
-        "",
-        ""
-      ]
+      "muted": "",
+      "default": ["", "", ""],
     },
     "on-click": "pavucontrol",
-    "tooltip": false
+    "tooltip": false,
   },
 
   "backlight": {
     "device": "intel_backlight",
     "format": "{icon} {percent}%",
-    "format-icons": [
-      "󰃞",
-      "󰃟",
-      "󰃝",
-      "󰃠"
-    ],
-    "tooltip": false
+    "format-icons": ["󰃞", "󰃟", "󰃝", "󰃠"],
+    "tooltip": false,
   },
 
   "idle_inhibitor": {
     "format": "{icon}",
     "format-icons": {
       "activated": "󰈈",
-      "deactivated": "󰈉"
+      "deactivated": "󰈉",
     },
-    "tooltip": false
+    "tooltip": false,
+  },
+
+  "sway/window": {
+    "format": "{title}",
+    "max-length": 50,
+    "rewrite": {
+      "(.*) - Mozilla Firefox": "🌎 $1",
+      "(.*) - nvim": " $1",
+      "(.*) - bash": " [$1]",
+    },
   },
 
   "custom/media": {
@@ -68,27 +83,21 @@
     "on-click-right": "playerctl stop",
     "on-scroll-up": "playerctl next",
     "on-scroll-down": "playerctl previous",
-    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null"
+    "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null",
   },
 
   "network": {
-    "interval" : 20,
+    "interval": 20,
     "format": "{icon} {essid}",
     "format-disconnected": "{icon}",
     "format-icons": {
-      "wifi": [
-        "󰤟",
-        "󰤢",
-        "󰤥",
-        "󰤨"
-      ],
+      "wifi": ["󰤟", "󰤢", "󰤥", "󰤨"],
       "disconnected": "󰤫",
-      "ethernet": "󰈀", 
-      "disabled": "⚠"
+      "ethernet": "󰈀",
+      "disabled": "⚠",
     },
-    "tooltip": false
+    "tooltip": false,
   },
-
   "bluetooth": {
     "interval": 5,
     "format": "<span font='9'>{icon}</span>",
@@ -96,35 +105,29 @@
     "format-icons": {
       "enabled": "󰂯",
       "disabled": "󰂲",
-      "connected": "󰂱" 
+      "connected": "󰂱",
     },
     "on-click": "blueberry",
-    "tooltip": false
+    "tooltip": false,
   },
 
   "battery": {
     "interval": 20,
     "format": "{icon} {capacity}%",
     "format-charging": "{icon}󱐋 {capacity}%",
-    "format-icons": [
-      "",
-      "",
-      "",
-      "",
-      ""
-    ],
-    "tooltip": false
+    "format-icons": ["", "", "", "", ""],
+    "tooltip": false,
   },
 
   "clock#date": {
     "interval": 45,
     "format": "{:%e %b, %a}",
-    "tooltip": false
+    "tooltip": false,
   },
 
   "clock#time": {
     "interval": 45,
     "format": "{:%H:%M}",
-    "tooltip": false
-  }
+    "tooltip": false,
+  },
 }
