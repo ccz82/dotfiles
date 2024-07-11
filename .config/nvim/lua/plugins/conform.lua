@@ -1,29 +1,34 @@
 return {
-	"stevearc/conform.nvim",
-	event = "BufWritePre",
-	cmd = "ConformInfo",
-	keys = {
-		{
-			"<Leader>F",
-			function()
-				require("conform").format({ async = true, lsp_fallback = true })
-			end,
-			desc = "Format buffer",
-		},
-	},
-	opts = {
-		formatters_by_ft = {
-			lua = { "stylua" },
-			python = { "black" },
-			javascript = { "prettierd", "eslint_d" },
-			typescript = { "prettierd", "eslint_d" },
-			javascriptreact = { "prettierd", "eslint_d" },
-			typescriptreact = { "prettierd", "eslint_d" },
-			html = { "prettierd" },
-			css = { "prettierd" },
-			markdown = { "prettierd" },
-			json = { "prettierd" },
-			tex = { "latexindent" },
-		},
-	},
+  "stevearc/conform.nvim",
+  event = "BufWritePre",
+  cmd = "ConformInfo",
+  keys = {
+    {
+      "<Leader>F",
+      function()
+        require("conform").format({ async = true, lsp_fallback = true })
+      end,
+      desc = "Format buffer",
+    },
+  },
+  opts = {
+    format_on_save = {
+      timeout_ms = 500,
+      lsp_format = "fallback",
+    },
+    formatters_by_ft = {
+      lua = { "stylua" },
+      python = { "black" },
+      javascript = { "prettier" },
+      typescript = { "prettier" },
+      javascriptreact = { "prettier" },
+      typescriptreact = { "prettier" },
+      html = { "prettier" },
+      css = { "prettier" },
+      markdown = { "prettier" },
+      json = { "prettier" },
+      jsonc = { "prettier" },
+      tex = { "latexindent" },
+    },
+  },
 }

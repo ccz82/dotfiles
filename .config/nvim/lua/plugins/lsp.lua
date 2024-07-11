@@ -8,13 +8,13 @@ local lspServers = {
       },
     },
   },
-  clangd = {
-    cmd = { "clangd", "--offset-encoding=utf-16" },
-  },
+  zls = {},
+  clangd = {},
   csharp_ls = {},
   rust_analyzer = {},
   pyright = {},
   tsserver = {},
+  eslint = {},
   html = {},
   cssls = {},
   tailwindcss = {

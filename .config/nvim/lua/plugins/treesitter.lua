@@ -26,6 +26,7 @@ return {
 				"vim",
 				"vimdoc",
 				"query",
+        "zig",
 				"c",
 				"cpp",
         "c_sharp",

@@ -1,19 +1,19 @@
 return {
-  { "ellisonleao/gruvbox.nvim", lazy = false, priority = 1000, config = function()
-    vim.cmd("colorscheme gruvbox")
-  end
+  {
+    "ellisonleao/gruvbox.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {
+      transparent_mode = true,
+    },
+    config = function(_, opts)
+      require("gruvbox").setup(opts)
+      vim.cmd("colorscheme gruvbox")
+    end,
   },
   {
     "rebelot/kanagawa.nvim",
     lazy = false,
     priority = 1000,
-  --   config = function()
-  --     local hr = tonumber(os.date('%H', os.time()))
-  --     if hr > 7 and hr < 19 then
-  --       vim.cmd("colorscheme kanagawa-wave")
-  --     else
-  --       vim.cmd("colorscheme kanagawa-dragon")
-  --     end
-  --   end,
-  }
+  },
 }
