@@ -50,7 +50,7 @@ default_floating_border none
 
 ## Gap
 gaps inner 10
-smart_borders no_gaps
+gaps top -8
 
 ## Applications that should float by default
 for_window [app_id="blueberry"] floating enable
