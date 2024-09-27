@@ -42,7 +42,7 @@ set $menu wofi --show drun
 # Visual
 
 ## Wallpaper
-output * bg /usr/share/backgrounds/sway/wallpaper.jpg fill
+output * bg /usr/share/backgrounds/sway/wallpaper.png fill
 
 ## Border
 default_border none
@@ -50,11 +50,12 @@ default_floating_border none
 
 ## Gap
 gaps inner 10
-gaps top -8
+#gaps top -8
 
 ## Applications that should float by default
 for_window [app_id="blueberry"] floating enable
 for_window [app_id="pavucontrol"] floating enable
+for_window [app_id="zen-alpha" title="Picture-in-Picture"] floating enable
 
 ## Set default workspace for display outputs
 workspace 1 output eDP-1

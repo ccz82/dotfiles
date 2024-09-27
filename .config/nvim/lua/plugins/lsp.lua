@@ -30,6 +30,7 @@ local lspServers = {
       { "<Leader>k", "<plug>(vimtex-doc-package)", desc = "Vimtex Docs", silent = true },
     },
   },
+  ocamllsp = {},
 }
 
 local get_keys = function(t)

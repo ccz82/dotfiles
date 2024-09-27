@@ -17,6 +17,7 @@ return {
       lsp_format = "fallback",
     },
     formatters_by_ft = {
+      sh = { "shfmt" },
       lua = { "stylua" },
       python = { "black" },
       javascript = { "prettier" },
@@ -29,6 +30,7 @@ return {
       json = { "prettier" },
       jsonc = { "prettier" },
       tex = { "latexindent" },
+      ocaml = { "ocamlformat" },
     },
   },
 }

@@ -37,6 +37,5 @@
   "telescope.nvim": { "branch": "master", "commit": "d90956833d7c27e73c621a61f20b29fdb7122709" },
   "todo-comments.nvim": { "branch": "main", "commit": "313b04e5b02d29ab9275c9295ff5e2b73921b0eb" },
   "toggleterm.nvim": { "branch": "main", "commit": "cd55bf6aab3f88c259fa29ea86bbdcb1a325687d" },
-  "vim-repeat": { "branch": "master", "commit": "65846025c15494983dafe5e3b46c8f88ab2e9635" },
   "vimtex": { "branch": "master", "commit": "2dc2a5435809c13f6f4aa07964be4ef19a7864f5" }
 }
